@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'main',
     'tailwind',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    'whitenoise.runserver_nostatic',
 ]
 
 
@@ -140,6 +141,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 if not DEBUG:
+  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
   STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_URL = 'loggin'
