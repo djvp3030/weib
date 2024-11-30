@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'weib.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "dbp",
-        "USER": "postgres",
-        "PASSWORD": "3030",
+        "NAME": "weib",
+        "USER": "weib_user",
+        "PASSWORD": "Ihc8DlXL46TCga6nVcXsJZHOROvAnfyB",
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -142,7 +142,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 if not DEBUG:
   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
   STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_URL = 'loggin'
 
