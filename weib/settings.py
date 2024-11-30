@@ -96,7 +96,7 @@ DATABASES = {
         "NAME": "weib",
         "USER": "weib_user",
         "PASSWORD": "Ihc8DlXL46TCga6nVcXsJZHOROvAnfyB",
-        "HOST": "localhost",
+        "HOST": "dpg-ct59tho8fa8c73btgaqg-a",
         "PORT": "5432",
     }
 }
