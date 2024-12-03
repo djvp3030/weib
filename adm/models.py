@@ -20,4 +20,4 @@ class size(models.Model):
   tamaño = models.CharField(max_length=10, null=True, blank=True)
   
   def __str__(self):
-     return self.tamaño
+    return self.tamaño
