@@ -18,14 +18,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY',default = 'asdjkjksjcj23456fsadfcx')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-
-if RENDER_EXTERNAL_HOSTNAME :
-  ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 # Application definition
 
 INSTALLED_APPS = [
@@ -90,15 +86,10 @@ WSGI_APPLICATION = 'weib.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "weib",
-        "USER": "weib_user",
-        "PASSWORD": "Ihc8DlXL46TCga6nVcXsJZHOROvAnfyB",
-        "HOST": "dpg-ct59tho8fa8c73btgaqg-a",
-        "PORT": "5432",
-    }
+    'default': dj_database_url.config(default= "libsql://weib-deividvarg.turso.io")
 }
 
 
