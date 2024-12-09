@@ -21,3 +21,5 @@ ENV PYTHONUNBUFFERED 1
 
 # Comando para ejecutar la aplicación con Gunicorn
 CMD ["gunicorn", "weib.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+ENV DATABASE_URL= postgresql://postgres:uxHDHVENJblVytTToxKHsAVRdnvxfhUp@postgres.railway.internal:5432/railway
