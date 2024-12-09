@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from django.core.management.utils import get_random_secret_key
 
 SECRET_KEY = os.environ.get('SECRET_KEY',default = 'asdjkjksjcj23456fsadfcx')
 
@@ -89,7 +90,7 @@ WSGI_APPLICATION = 'weib.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default= "libsql://weib-deividvarg.turso.io")
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
