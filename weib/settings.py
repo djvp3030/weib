@@ -88,10 +88,31 @@ WSGI_APPLICATION = 'weib.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 import dj_database_url
+from urllib.parse import urlparse
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # Usa el backend de PostgreSQL
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT', '5432'),  # El puerto por defecto para PostgreSQL
+    }
 }
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    parsed_url = urlparse(DATABASE_URL)
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': parsed_url.path[1:],
+        'USER': parsed_url.username,
+        'PASSWORD': parsed_url.password,
+        'HOST': parsed_url.hostname,
+        'PORT': parsed_url.port,
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
