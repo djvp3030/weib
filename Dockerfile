@@ -32,7 +32,7 @@ RUN pip install -r requirements.txt
 
 # Ejecuta los comandos necesarios para construir los estilos de Tailwind
 RUN python manage.py collectstatic --noinput
-RUN python manage.py tailwind build
+
 
 # Exponer el puerto en el que la app estará corriendo
 EXPOSE 8000
