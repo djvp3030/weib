@@ -26,14 +26,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = []
 
-
-
-
-CSRF_COOKIE_SECURE = True  
-CSRF_COOKIE_HTTPONLY = True  
-CSRF_COOKIE_SAMESITE = 'Lax'
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
