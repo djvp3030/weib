@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 
 ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app']
-CRSF_TRUSTED_ORIGINS = ['http://*','https://weib-production.up.railway.app/ ']
+CRSF_TRUSTED_ORIGINS = ['http://*','https://weib-production.up.railway.app']
 
 
 
