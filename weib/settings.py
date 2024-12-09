@@ -27,9 +27,12 @@ DEBUG = False
 ALLOWED_HOSTS = []
 
 
-ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app']
-CRSF_TRUSTED_ORIGINS = ['http://*','https://weib-production.up.railway.app']
-CSRF_COOKIE_DOMAIN = ['https://weib-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app','www.weib-production.up.railway.app']
+CRSF_TRUSTED_ORIGINS = ['http://weib-production.up.railway.app','https://weib-production.up.railway.app']
+
+CSRF_COOKIE_SECURE = True  
+CSRF_COOKIE_HTTPONLY = True  
+CSRF_COOKIE_SAMESITE = 'Lax'
 
 
 INSTALLED_APPS = [
