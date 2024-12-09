@@ -24,9 +24,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY',default = 'asdjkjksjcj23456fsadfcx')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', 'https://weib-production.up.railway.app ']
 #
-# Application definition
+CRSF_TRUSTED_ORIGINS = ['https://weib-production.up.railway.app ']
 
 
 
