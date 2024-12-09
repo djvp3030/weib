@@ -27,8 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app','www.weib-production.up.railway.app']
-CRSF_TRUSTED_ORIGINS = ['http://weib-production.up.railway.app','https://weib-production.up.railway.app']
+
 
 CSRF_COOKIE_SECURE = True  
 CSRF_COOKIE_HTTPONLY = True  
@@ -171,3 +170,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'Weibstore2024@gmail.com'
 EMAIL_HOST_PASSWORD = 'ajdr dqvr asxc wqqx'
+
+ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app','www.weib-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://weib-production.up.railway.app',
+]
