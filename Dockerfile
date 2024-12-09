@@ -1,11 +1,3 @@
-
-Para desplegar tu aplicación Django en Railway con Docker, puedes crear un archivo Dockerfile que instale todas las dependencias necesarias, ejecute las migraciones de la base de datos, recoja los archivos estáticos, compile los estilos de Tailwind y luego inicie el servidor con Gunicorn.
-
-El comando que mencionas, python manage.py tailwind build, es necesario si estás usando Tailwind CSS con Django. Lo correcto sería incluirlo en el proceso de construcción del contenedor, por lo que tu archivo Dockerfile podría verse de la siguiente manera:
-
-Dockerfile
-dockerfile
-Copiar código
 # Usa una imagen oficial de Python como base
 FROM python:3.11-slim
 
