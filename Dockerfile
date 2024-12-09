@@ -4,14 +4,19 @@ FROM python:3.11-slim
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de tu aplicación al contenedor
-COPY . /app/
-
 # Instala las dependencias del sistema necesarias (por ejemplo, compiladores)
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     build-essential \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
+# Instala Node.js y npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+# Copia los archivos de tu aplicación al contenedor
+COPY . /app/
 
 # Crea un entorno virtual y activa el entorno
 RUN python -m venv /venv
