@@ -2,7 +2,6 @@
 <head>
   {% tailwind_css %}
   <title>{%block tittle%} apartado admin {%endblock%}</title>
-  <link href="{% static 'css/output.css' %}" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-200">
@@ -152,27 +151,27 @@
   </div>
   <script>
     function toggleDropdown() {
-      let dropdown = document.querySelector('#dropdownbutton #dropdown')
-      dropdown.classList.toggle('hidden')
+      let dropdown = document.querySelector("#dropdownbutton #dropdown");
+      dropdown.classList.toggle("hidden");
     }
   </script>
 
   <script>
     function toggleDropdown1() {
-      let dropdown = document.querySelector('#dropdownbutton1 #dropdown1')
-      dropdown.classList.toggle('hidden')
+      let dropdown = document.querySelector("#dropdownbutton1 #dropdown1");
+      dropdown.classList.toggle("hidden");
     }
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const alerts = document.querySelectorAll('#alert-container .relative')
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const alerts = document.querySelectorAll("#alert-container .relative");
       alerts.forEach((alert) => {
         setTimeout(() => {
-          alert.style.transform = 'translateX(100%)'
-          setTimeout(() => alert.remove(), 500) // Elimina el elemento después de la animación
-        }, 5000) // Tiempo antes de ocultar el mensaje (5 segundos)
-      })
-    })
+          alert.style.transform = "translateX(100%)";
+          setTimeout(() => alert.remove(), 500); // Elimina el elemento después de la animación
+        }, 5000); // Tiempo antes de ocultar el mensaje (5 segundos)
+      });
+    });
   </script>
 </body>

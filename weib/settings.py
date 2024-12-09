@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os 
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,8 +25,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY',default = 'asdjkjksjcj23456fsadfcx')
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
+#
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,12 +41,11 @@ INSTALLED_APPS = [
     'services_store',
     'users',
     'main',
+    'whitenoise.runserver_nostatic',
     'tailwind',
     'theme',
-    'django_browser_reload',
-    'whitenoise.runserver_nostatic',
+    'django_browser_reload'
 ]
-
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -68,7 +72,7 @@ ROOT_URLCONF = 'weib.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,15 +94,9 @@ WSGI_APPLICATION = 'weib.wsgi.application'
 import dj_database_url
 from urllib.parse import urlparse
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Usa el backend de PostgreSQL
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT', '5432'),  # El puerto por defecto para PostgreSQL
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
@@ -146,14 +144,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_URL = 'loggin'
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
 
 import os 
 
