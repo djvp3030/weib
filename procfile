@@ -1,1 +1,2 @@
-web: gunicorn weib.wsgi:application 
+
+web: gunicorn weib.wsgi:application
