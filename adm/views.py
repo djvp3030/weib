@@ -9,7 +9,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys 
 from services_store.models import factura_servicios,factura_tienda
 from django.contrib import messages
-
+import os
 
 def admin(user):
   return user.is_authenticated and user.is_admin
@@ -32,6 +32,9 @@ def añadir_servicios(request):
         img_prev = request.FILES['img_prev']
         img_comp = request.FILES['img_comp']
         
+        img_prev_name_base = os.path.splitext(img_prev.name)[0]
+        img_comp_name_base = os.path.splitext(img_comp.name)[0]
+
         img = Image.open(img_prev) 
         img2 = Image.open(img_comp)
         img = ImageOps.exif_transpose(img)
@@ -42,9 +45,8 @@ def añadir_servicios(request):
         img_io2 = BytesIO()
         img.save(img_io, format='WEBP')
         img2.save(img_io2, format='WEBP')
-        img_file = InMemoryUploadedFile(img_io,'ÍmageField', f'{img_prev.name}.webp','image/webp',sys.getsizeof(img_io), None)
-        img_file2 = InMemoryUploadedFile(img_io2,'ÍmageField', f'{img_comp.name}.webp','image/webp',sys.getsizeof(img_io2), None)
-        
+        img_file = InMemoryUploadedFile(img_io, 'ImageField', f'{img_prev_name_base}.webp', 'image/webp',sys.getsizeof(img_io), None)
+        img_file2 = InMemoryUploadedFile(img_io2, 'ImageField', f'{img_comp_name_base}.webp', 'image/webp',sys.getsizeof(img_io2), None)
         servicios.img_prev = img_file
         servicios.img_comp = img_file2
         
