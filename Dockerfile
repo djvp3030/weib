@@ -37,5 +37,12 @@ RUN python manage.py collectstatic --noinput
 # Exponer el puerto en el que la app estará corriendo
 EXPOSE 8000
 
+# Instala Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copia el archivo de configuración de Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Comando para iniciar la aplicación con Gunicorn
 CMD ["gunicorn", "weib.wsgi:application", "--bind", "0.0.0.0:8000"]
+
