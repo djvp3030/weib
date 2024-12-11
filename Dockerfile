@@ -30,6 +30,9 @@ ENV PATH="/venv/bin:$PATH"
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+# collect static
+RUN python manage.py collectstatic
+
 # Instala Nginx
 RUN apt-get update && apt-get install -y nginx
 
