@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'tailwind',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    'storages',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -164,3 +165,4 @@ ALLOWED_HOSTS = ['localhost', 'weib-production.up.railway.app','www.weib-product
 CSRF_TRUSTED_ORIGINS = [
     'https://weib-production.up.railway.app',
 ]
+
