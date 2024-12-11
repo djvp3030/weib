@@ -43,8 +43,6 @@ RUN apt-get update && apt-get install -y nginx
 # Copia el archivo de configuración de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-VOLUME ["/app/media"]
-
 # Comando para iniciar la aplicación con Gunicorn
 CMD ["gunicorn", "weib.wsgi:application", "--bind", "0.0.0.0:8000"]
 
