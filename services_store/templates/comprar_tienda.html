@@ -32,20 +32,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Controles -->
-        <button
-          id="prevButton"
-          class="absolute top-1/2 left-0 transform -translate-y-1/2 text-white p-2 rounded-full focus:outline-none"
-        >
-          ‹
-        </button>
-        <button
-          id="nextButton"
-          class="absolute top-1/2 right-0 transform -translate-y-1/2 text-white p-2 rounded-full focus:outline-none"
-        >
-          ›
-        </button>
       </div>
     </div>
 
@@ -63,6 +49,7 @@
         name="tamañoSelector"
         id="tamaño_selector"
         onchange="actualizarDatos()"
+        class="rounded-xl hover:110"
       >
         {%for i in size%}
         <option value="">----</option>
@@ -71,7 +58,7 @@
       </select>
 
       <button
-        class="rounded-xl w-40 h-8 hover:bg-slate-300 pb-1.5 text-xl"
+        class="rounded-xl w-40 h-8 hover:[#fdbc3b] pb-1.5 text-xl hover:scale-110"
         id="abrir"
       >
         comprar
@@ -135,59 +122,59 @@
 
   <script>
     function actualizarDatos() {
-      var select = document.getElementById("tamaño_selector");
-      var selectedOption = select.options[select.selectedIndex];
-      var Tamaño = selectedOption.getAttribute("data-tamaño");
+      var select = document.getElementById('tamaño_selector')
+      var selectedOption = select.options[select.selectedIndex]
+      var Tamaño = selectedOption.getAttribute('data-tamaño')
 
-      document.getElementById("tamañoF").value = Tamaño;
+      document.getElementById('tamañoF').value = Tamaño
     }
   </script>
 
   <script>
     const imageCarousel =
-      document.getElementById("imageCarousel").firstElementChild;
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
+      document.getElementById('imageCarousel').firstElementChild
+    const prevButton = document.getElementById('prevButton')
+    const nextButton = document.getElementById('nextButton')
 
-    let currentIndex = 0;
+    let currentIndex = 0
 
     function updateImageCarousel() {
-      const width = imageCarousel.clientWidth;
-      imageCarousel.style.transform = `translateX(-${currentIndex * width}px)`;
+      const width = imageCarousel.clientWidth
+      imageCarousel.style.transform = `translateX(-${currentIndex * width}px)`
     }
 
-    prevButton.addEventListener("click", () => {
+    prevButton.addEventListener('click', () => {
       currentIndex =
-        currentIndex > 0 ? currentIndex - 1 : imageCarousel.children.length - 1;
-      updateImageCarousel();
-    });
+        currentIndex > 0 ? currentIndex - 1 : imageCarousel.children.length - 1
+      updateImageCarousel()
+    })
 
-    nextButton.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % imageCarousel.children.length;
-      updateImageCarousel();
-    });
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % imageCarousel.children.length
+      updateImageCarousel()
+    })
 
-    window.addEventListener("resize", updateImageCarousel);
+    window.addEventListener('resize', updateImageCarousel)
 
     // Cambio automático cada 3 segundos
     setInterval(() => {
-      currentIndex = (currentIndex + 1) % imageCarousel.children.length;
-      updateImageCarousel();
-    }, 3000); // Cambia el valor (3000 ms) para ajustar el intervalo de tiempo
+      currentIndex = (currentIndex + 1) % imageCarousel.children.length
+      updateImageCarousel()
+    }, 3000) // Cambia el valor (3000 ms) para ajustar el intervalo de tiempo
   </script>
 
   <script>
-    const abrir = document.querySelector("#abrir");
-    const modal = document.querySelector("#modal");
-    const cerrar = document.querySelector("#cerrar");
+    const abrir = document.querySelector('#abrir')
+    const modal = document.querySelector('#modal')
+    const cerrar = document.querySelector('#cerrar')
 
-    abrir.addEventListener("click", () => {
-      modal.showModal();
-    });
+    abrir.addEventListener('click', () => {
+      modal.showModal()
+    })
 
-    cerrar.addEventListener("click", () => {
-      modal.close();
-    });
+    cerrar.addEventListener('click', () => {
+      modal.close()
+    })
   </script>
   {%endblock%}
 </body>
