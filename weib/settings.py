@@ -143,12 +143,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_URL = 'loggin'
 
 import os 
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('API_KEY'),
-    'API_SECRET': os.environ.get('API_SECRET'),
-}
+import cloudinary
+cloudinary.config( 
+    cloud_name = os.environ.get('CLOUD_NAME'), 
+    api_key =  os.environ.get('API_KEY'), 
+    api_secret =  os.environ.get('API_SECRET'), # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
