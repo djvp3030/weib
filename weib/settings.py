@@ -152,7 +152,7 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-MEDIA_URL = 'https://res.cloudinary.com/' + os.environ.get('CLOUD_NAME') + '/'
+MEDIA_URL = f'https://res.cloudinary.com/{ os.environ.get('CLOUD_NAME')}/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
