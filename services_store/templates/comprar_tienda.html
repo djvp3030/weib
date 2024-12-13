@@ -49,7 +49,7 @@
         name="tamañoSelector"
         id="tamaño_selector"
         onchange="actualizarDatos()"
-        class="rounded-xl hover:scale-110"
+        class="rounded-xl hover:scale-110 transition duration-300"
       >
         {%for i in size%}
         <option value="">----</option>
@@ -58,7 +58,7 @@
       </select>
 
       <button
-        class="rounded-xl w-40 h-8 hover:bg-[#fdbc3b] pb-1.5 text-xl hover:scale-110"
+        class="rounded-xl w-40 h-8 hover:bg-[#fdbc3b] transition duration-300 pb-1.5 text-xl hover:scale-110"
         id="abrir"
       >
         comprar
