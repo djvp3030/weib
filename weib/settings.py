@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'tailwind',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -142,10 +144,17 @@ LOGIN_URL = 'loggin'
 
 import os 
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dpz6qpwiv',
+    'API_KEY': '126866431462911',
+    'API_SECRET': 'wilpy1bEetKfp1dYlK9wQGyO2QI',
+}
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+MEDIA_URL = 'https://res.cloudinary.com/tu-cloud-name/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

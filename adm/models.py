@@ -1,16 +1,17 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class servicios(models.Model):
   nombre = models.CharField(max_length= 100)
   descripcion = models.TextField()
-  img_prev = models.ImageField(upload_to= 'servicios', null=True)
-  img_comp = models.ImageField(upload_to= 'servicios', null=True)
+  img_prev = CloudinaryField('image', folder='servicios')
+  img_comp = CloudinaryField('image', folder='servicios')
   
 class producto(models.Model):
   nombre = models.CharField(max_length=100)
   descripcion = models.TextField()
-  img_prev = models.ImageField(upload_to='tienda', null=True)
-  img_comp = models.ImageField(upload_to='tienda', null=True)
+  img_prev = CloudinaryField('image', folder='tienda')
+  img_comp = CloudinaryField('image', folder='tienda')
   
   def __str__(self):
       return self.nombre
@@ -20,4 +21,4 @@ class size(models.Model):
   tamaño = models.CharField(max_length=10, null=True, blank=True)
   
   def __str__(self):
-     return self.tamaño
+    return self.tamaño
