@@ -33,12 +33,6 @@ RUN pip install -r requirements.txt
 # Ejecuta el comando collectstatic para recopilar archivos estáticos
 RUN python manage.py collectstatic --noinput
 
-# Instala Nginx
-RUN apt-get update && apt-get install -y nginx
-
-# Copia el archivo de configuración de Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
-
 # Exponer el puerto en el que la app estará corriendo
 EXPOSE 8000
 
