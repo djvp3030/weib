@@ -2,6 +2,7 @@
 <head>
   {% tailwind_css %}
   <title>{%block tittle%} apartado admin {%endblock%}</title>
+  <link rel="icon" href="{%static 'imgs/logo.png'%}" type="image/x-icon" />
 </head>
 
 <body class="bg-gray-200">
@@ -47,18 +48,18 @@
           <a
             href="{%url 'logout'%}"
             class="rounded-md duration-200 hover:bg-amber-400 hover:scale-105"
-            >cerrar sesion</a
+            >Cerrar Sesion</a
           >
           <a
             href="{%url 'Sm_main'%}"
             class="rounded-md duration-200 hover:bg-amber-400 hover:scale-105"
-            >admin</a
+            >Admin</a
           >
           <a href=""></a>
           <a
             href="{%url 'main'%}"
             class="rounded-md duration-200 hover:bg-amber-400 hover:scale-105"
-            >Pag principal</a
+            >Pagina Pincipal</a
           >
         </div>
       </div>
@@ -101,7 +102,7 @@
             <a
               href="{%url 'Asize'%}"
               class="ml-6 hover:bg-[#0097b2]/25 flex rounded w-32 duration-200 hover:scale-105"
-              >tamaño</a
+              >Tamaños</a
             >
           </div>
 
@@ -109,7 +110,7 @@
             href="{%url 'Ausers'%}"
             class="ml-6 mt-24 hover:bg-[#0097b2]/25 flex rounded w-40 duration-200 hover:scale-105"
           >
-            Crear usuario</a
+            Crear Usuario</a
           >
           {%endif%} {%if request.user.is_admin or request.user.staff %}
 
@@ -122,7 +123,7 @@
           <a
             href="{%url 'Vt'%}"
             class="ml-6 mt-8 hover:bg-[#4baa38]/25 flex rounded w-40 duration-200 hover:scale-105"
-            >Ver productos</a
+            >Ver Productos</a
           >
 
           <a
@@ -134,13 +135,13 @@
           <a
             href="{%url 'servicesSol'%}"
             class="ml-6 mt-8 hover:bg-[#fdbc3b]/25 rounded w-40 duration-200 hover:scale-105"
-            >servicios solicitados</a
+            >Servicios Solicitados</a
           >
 
           <a
             href="{%url 'productosComp'%}"
             class="ml-6 mt-8 hover:bg-[#fdbc3b]/25 rounded w-40 duration-200 hover:scale-105"
-            >productos comprados</a
+            >Productos Comprados</a
           >
 
           {%endif%}
@@ -151,27 +152,27 @@
   </div>
   <script>
     function toggleDropdown() {
-      let dropdown = document.querySelector("#dropdownbutton #dropdown");
-      dropdown.classList.toggle("hidden");
+      let dropdown = document.querySelector('#dropdownbutton #dropdown')
+      dropdown.classList.toggle('hidden')
     }
   </script>
 
   <script>
     function toggleDropdown1() {
-      let dropdown = document.querySelector("#dropdownbutton1 #dropdown1");
-      dropdown.classList.toggle("hidden");
+      let dropdown = document.querySelector('#dropdownbutton1 #dropdown1')
+      dropdown.classList.toggle('hidden')
     }
   </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      const alerts = document.querySelectorAll("#alert-container .relative");
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const alerts = document.querySelectorAll('#alert-container .relative')
       alerts.forEach((alert) => {
         setTimeout(() => {
-          alert.style.transform = "translateX(100%)";
-          setTimeout(() => alert.remove(), 500); // Elimina el elemento después de la animación
-        }, 5000); // Tiempo antes de ocultar el mensaje (5 segundos)
-      });
-    });
+          alert.style.transform = 'translateX(100%)'
+          setTimeout(() => alert.remove(), 500) // Elimina el elemento después de la animación
+        }, 5000) // Tiempo antes de ocultar el mensaje (5 segundos)
+      })
+    })
   </script>
 </body>

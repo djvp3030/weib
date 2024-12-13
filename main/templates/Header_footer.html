@@ -2,6 +2,7 @@
 <head>
   {% tailwind_css %}
   <title>{%block tittle%} {%endblock%}</title>
+  <link rel="icon" href="{%static 'imgs/logo.png'%}" type="image/x-icon">
 </head>
 
 <body class="bg-[#d9d9d9]">
@@ -31,7 +32,7 @@
           <a
             href="{%url 'tienda'%}"
             class="text-base duration-200 hover:text-[#4baa38] hover:text-lg"
-            >tienda</a
+            >Tienda</a
           >
         </div>
       </div>
@@ -67,13 +68,13 @@
             <a
               href="{%url 'logout'%}"
               class="rounded-md duration-200 hover:bg-teal-200 hover:scale-105"
-              >cerrar sesion</a
+              >Cerrar Sesion</a
             >
             {%if request.user.is_admin or request.user.staff%}
             <a
               href="{%url 'Sm_main'%}"
               class="rounded-md duration-200 hover:bg-teal-200 hover:scale-105"
-              >admin</a
+              >Admin</a
             >
 
             <a href="{%url 'verUN' user.id%}" class="rounded-md duration-200 hover:bg-teal-200 hover:scale-105">Ver Perfil</a>
@@ -95,12 +96,12 @@
         <a
           href="{%url 'loggin'%}"
           class="text-base duration-200 hover:scale-150 hover:text-lg hover:text-[#0097b2]"
-          >Log  in</a
+          >Login</a
         >
         <a
           href="{%url 'register'%}"
           class="text-base duration-200 hover:scale-150 hover:text-lg hover:text-[#0097b2]"
-          >Registrarse</a
+          >Register</a
         >
       </div>
       {%endif%}
@@ -120,7 +121,7 @@
   <div class="flex justify-center space-x-40 h-20">
   <div class="flex items-center ">
     <div class="flex flex-col  mb-4 ml-2">
-      <p>Nuestras redes</p>
+      <p>Nuestras Redes</p>
 
       <div class="flex items-center">
         <a href="https://www.instagram.com/amenitiesweib/" class="duration-150 hover:scale-105"
@@ -130,7 +131,7 @@
   </div>
 
   <div class="flex flex-col items-start mb-2">
-    <p>contactanos</p>
+    <p>Contactanos</p>
       <p>0412-6412463</p>
       <p>+58 424-7143001</p>
       <p>weibca@gmail.com</p>
