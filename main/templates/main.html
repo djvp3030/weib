@@ -21,31 +21,8 @@
         class="flex items-center justify-between space-x-20 w-full my-3 relative z-20 p-4 space-4"
       >
         <div
-          class="flex flex-col justify-center items-center rounded-lg shadow-lg w-2/3 h-full bg-[#fdbc3b]/70 py-4"
-        >
-          <div class="w-96 space-y-2 z-40">
-            <h3 class="text-3xl text-orange-50 flex justify-center">
-              ¿Quienes somos?
-            </h3>
-            <p class="text-xl text-orange-50">
-              Somos una empresa de servcios y amenites donde pueden confiar en
-              nuestra eficiencia, confiabilidad a precios preciosos justos.
-              <br />
-              no encargaremos de todas las áreas donde se requiera un servicio,
-              sea doméstico, de comunidad o de obra, Nuestros servicios tendrán
-              una capacitación previa en todas las áreas y serán evaluados
-              constantemente tanto por el cliente como por la empresa.
-
-              <br />
-              Tambien ofrecemos todo tipos de amenites para que su empresa tenga
-              los mejores productos .
-            </p>
-          </div>
-        </div>
-
-        <div
           id="imageCarousel"
-          class="flex overflow-hidden rounded-lg shadow-lg items-center w-3/5 h-96"
+          class="flex overflow-hidden rounded-lg shadow-lg items-center w-full h-96"
         >
           <div
             class="flex transition-transform duration-500 ease-in-out"
@@ -335,100 +312,98 @@
 
     <!-- carrusel de tarjetas servicios -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const carousel = document.getElementById("carousel");
-        const prevButton = document.getElementById("prev");
-        const nextButton = document.getElementById("next");
+      document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('carousel')
+        const prevButton = document.getElementById('prev')
+        const nextButton = document.getElementById('next')
 
-        let currentIndex = 0;
-        const cardsToShow = 3; // Número de tarjetas a mostrar a la vez
-        const totalCards = carousel.children.length;
+        let currentIndex = 0
+        const cardsToShow = 3 // Número de tarjetas a mostrar a la vez
+        const totalCards = carousel.children.length
 
         function updateCarousel() {
-          const offset = -currentIndex * (carousel.clientWidth / cardsToShow);
-          carousel.style.transform = `translateX(${offset}px)`;
+          const offset = -currentIndex * (carousel.clientWidth / cardsToShow)
+          carousel.style.transform = `translateX(${offset}px)`
         }
 
-        prevButton.addEventListener("click", function () {
+        prevButton.addEventListener('click', function () {
           if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
+            currentIndex--
+            updateCarousel()
           }
-        });
+        })
 
-        nextButton.addEventListener("click", function () {
+        nextButton.addEventListener('click', function () {
           if (currentIndex + cardsToShow < totalCards) {
-            currentIndex++;
-            updateCarousel();
+            currentIndex++
+            updateCarousel()
           }
-        });
-      });
+        })
+      })
     </script>
 
     <!-- carrusel principal -->
     <script>
       const imageCarousel =
-        document.getElementById("imageCarousel").firstElementChild;
+        document.getElementById('imageCarousel').firstElementChild
 
-      let currentIndex = 0;
+      let currentIndex = 0
 
       function updateImageCarousel() {
-        const width = imageCarousel.clientWidth;
-        imageCarousel.style.transform = `translateX(-${
-          currentIndex * width
-        }px)`;
+        const width = imageCarousel.clientWidth
+        imageCarousel.style.transform = `translateX(-${currentIndex * width}px)`
       }
 
-      window.addEventListener("resize", updateImageCarousel);
+      window.addEventListener('resize', updateImageCarousel)
 
       setInterval(() => {
-        currentIndex = (currentIndex + 1) % imageCarousel.children.length;
-        updateImageCarousel();
-      }, 4000);
+        currentIndex = (currentIndex + 1) % imageCarousel.children.length
+        updateImageCarousel()
+      }, 4000)
     </script>
 
     <!-- carrusel de tarjetas tienda -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const carouselT = document.getElementById("carouselT");
-        const prevButtonT = document.getElementById("prevT");
-        const nextButtonT = document.getElementById("nextT");
+      document.addEventListener('DOMContentLoaded', function () {
+        const carouselT = document.getElementById('carouselT')
+        const prevButtonT = document.getElementById('prevT')
+        const nextButtonT = document.getElementById('nextT')
 
-        let currentIndexT = 0;
-        const cardsToShowT = 3; // Número de tarjetas a mostrar a la vez
-        const totalCardsT = carouselT.children.length;
+        let currentIndexT = 0
+        const cardsToShowT = 3 // Número de tarjetas a mostrar a la vez
+        const totalCardsT = carouselT.children.length
 
         function updateCarousel() {
-          const offset = -currentIndexT * (carousel.clientWidth / cardsToShowT);
-          carousel.style.transform = `translateX(${offset}px)`;
+          const offset = -currentIndexT * (carousel.clientWidth / cardsToShowT)
+          carousel.style.transform = `translateX(${offset}px)`
         }
 
-        prevButtonT.addEventListener("click", function () {
+        prevButtonT.addEventListener('click', function () {
           if (currentIndexT > 0) {
-            currentIndexT--;
-            updateCarousel();
+            currentIndexT--
+            updateCarousel()
           }
-        });
+        })
 
-        nextButtonT.addEventListener("click", function () {
+        nextButtonT.addEventListener('click', function () {
           if (currentIndexT + cardsToShowT < totalCardsT) {
-            currentIndexT++;
-            updateCarousel();
+            currentIndexT++
+            updateCarousel()
           }
-        });
-      });
+        })
+      })
     </script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const alerts = document.querySelectorAll("#alert-container .relative");
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const alerts = document.querySelectorAll('#alert-container .relative')
         alerts.forEach((alert) => {
           setTimeout(() => {
-            alert.style.transform = "translateX(100%)";
-            setTimeout(() => alert.remove(), 500); // Elimina el elemento después de la animación
-          }, 5000); // Tiempo antes de ocultar el mensaje (5 segundos)
-        });
-      });
+            alert.style.transform = 'translateX(100%)'
+            setTimeout(() => alert.remove(), 500) // Elimina el elemento después de la animación
+          }, 5000) // Tiempo antes de ocultar el mensaje (5 segundos)
+        })
+      })
     </script>
 
     {%endblock%}
