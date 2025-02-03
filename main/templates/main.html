@@ -21,13 +21,13 @@
           class="flex overflow-hidden shadow-lg items-center w-full h-96"
         >
           <div
-            class="flex transition-transform duration-500 ease-in-out"
+            class="flex transition-transform duration-500 ease-in-out w-full"
             style="transform: translateX(0%)"
           >
             {% for img in imgs_c %}
             <img
               src="{% static 'carrusel/'|add:img %}"
-              class="object-cover flex-shrink-0 w-fit"
+              class="w-full"
               alt="Imagen {{ forloop.counter }}"
             />
             {% endfor %}
