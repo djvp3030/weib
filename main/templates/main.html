@@ -27,7 +27,7 @@
             {% for img in imgs_c %}
             <img
               src="{% static 'carrusel/'|add:img %}"
-              class="w-full flex-shrink-0 object-center"
+              class="w-full flex-shrink-0 object-center mx-2"
               alt="Imagen {{ forloop.counter }}"
             />
             {% endfor %}
