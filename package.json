@@ -4,5 +4,8 @@
     "@types/node": "^22.13.1",
     "concurrently": "^8.2.2"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "tailwindcss": "^4.0.6"
+  }
 }
